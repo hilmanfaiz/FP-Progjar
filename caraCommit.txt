@@ -29,4 +29,3 @@ git config --global user.email "hilmanfaiz96@gmail.com"
 
 git config --global user.name "ken_genesius"
 git config --global user.email "mkengenesius@gmail.com"
-
