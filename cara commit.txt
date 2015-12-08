@@ -6,10 +6,10 @@ contoh 1:
 contoh 2 (kalau ada spasi):
     git add 'nama file.txt'
 
-
-
 #2: Commit to local
 git commit -m "Commit message goes here"
+
+# JANGAN LUPA KASI NAMA MASING2 (misal "... - oleh anonymous")
 
 #3: Push your commit/changes to the host (github)
 git push
