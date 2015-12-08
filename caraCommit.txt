@@ -1,0 +1,31 @@
+#Pertama: Ganti user github ke user masing2
+
+git config --global user.name "Your Name Here"
+git config --global user.email "your_email@example.com"
+
+#1: Add any new files as part of the commit
+#   or use git add -p to interactively select hunks to stage
+
+contoh 1:
+    git add file1 file2 …
+contoh 2 (kalau ada spasi):
+    git add 'nama file.txt'
+
+#2: Commit to local
+git commit -m "Commit message goes here"
+
+# JANGAN LUPA KASI NAMA MASING2 (misal "... - oleh anonymous")
+
+#3: Push your commit/changes to the host (github)
+git push
+
+
+### Github Hilman
+
+git config --global user.name "hilmanfaiz"
+git config --global user.email "hilmanfaiz96@gmail.com"
+
+### Github Iyus
+
+git config --global user.name "ken_genesius"
+git config --global user.email "mkengenesius@gmail.com"
