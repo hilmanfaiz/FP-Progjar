@@ -1,6 +1,12 @@
 #1: Add any new files as part of the commit
 #   or use git add -p to interactively select hunks to stage
-git add file1 file2 …
+
+contoh 1:
+    git add file1 file2 …
+contoh 2 (kalau ada spasi):
+    git add 'nama file.txt'
+
+
 
 #2: Commit to local
 git commit -m "Commit message goes here"
