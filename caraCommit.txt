@@ -29,3 +29,8 @@ git config --global user.email "hilmanfaiz96@gmail.com"
 
 git config --global user.name "ken_genesius"
 git config --global user.email "mkengenesius@gmail.com"
+
+### Github Nida
+
+git config --global user.name "nidaamalia"
+git config --global user.email "nidacil@gmail.com"
