@@ -11,7 +11,7 @@ import datetime
 class Server:
     def __init__(self):
         self.host = 'localhost'
-        self.port = 5005
+        self.port = 5006
         self.backlog = 5
         self.size = 1024
         self.server = None
@@ -86,13 +86,13 @@ class Client(threading.Thread): #, BaseHTTPRequestHandler):
                 file1 = open(self.path,"r")
                 data=file1.read()
                 file1.close()
-                #print data
+                #print data 
                 now = datetime.datetime.now() #tanggal sekarang
                 detilnow = now.strftime("%a, %d %b %Y %H:%M:%S")
                 versipython= '.'.join(str(i) for i in sys.version_info) #print versipython
                 self.filesize=os.path.getsize(self.path)
-                
                 #self.client.send("HTTP/1.1 200 OK\r\n") #jek ngawur versi httpnya
+                self.header = ""
                 self.header += "HTTP/1.1 200 OK\r\n"
                 
                 #self.client.send("Date: " + detilnow + " GMT\r\n")
@@ -100,6 +100,10 @@ class Client(threading.Thread): #, BaseHTTPRequestHandler):
                 
                 #self.client.send("Server: " + versipython + "\r\n") #btw server bukannya apache ya?
                 self.header += "Server: " + versipython + "\r\n"
+                
+                #last modified
+                self.filelastmod=time.strftime("%m/%d/%Y %I:%M:%S %p",time.localtime(os.path.getmtime(self.path)))
+                self.header += "Last Modified: "+ str(self.filelastmod) + "\r\n"
                 
                 #self.client.send("Content-Length: " + str(filesize) + "\r\n")
                 self.header += "Content-Length: " + str(self.filesize) + "\r\n"
@@ -200,6 +204,10 @@ class Client(threading.Thread): #, BaseHTTPRequestHandler):
             #return 500
         #'''
         
+    def do_POST(self):
+        self.client.send("HTTP/1.1 200 OK\nContent-Type: text/html;\r\n\r\n")
+        
+    
     def run(self):
         running = 1
         while running:
@@ -225,6 +233,9 @@ class Client(threading.Thread): #, BaseHTTPRequestHandler):
                     #print self.path
                     self.do_GET_HEAD()
                     #self.client.send(data)
+                elif(self.requestHeader == "post"):
+                    self.path = self.pathdefault + reqfile
+                    self.do_POST()
             #elif requestHeader == HEAD:
                 
             #elif requestHeader == POST:
